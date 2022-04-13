@@ -1,10 +1,38 @@
 import { useParams } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import GabrielView from '../../views/user/GabrielView';
+import HidoView from '../../views/user/HidoView';
+import YeonsuView from '../../views/user/YeonsuView';
+import SeeunView from '../../views/user/SeeunView';
+import WwwlsView from '../../views/user/WwwlsView';
+import HyunjunView from '../../views/user/HyunjunView';
+import GykimView from '../../views/user/GykimView';
+import SoyoungView from '../../views/user/SoyoungView';
 
 const data = {
   gabrielyoon7:{
     html:<GabrielView/>,
+  },
+  hido02:{
+    html:<HidoView/>,
+  },
+  yeonsu00:{
+    html:<YeonsuView/>,
+  },
+  seeun01:{
+    html:<SeeunView/>,
+  },
+  wwwls99:{
+    html:<WwwlsView/>,
+  },
+  hyunjun003:{
+    html:<HyunjunView/>,
+  },
+  gykim0923:{
+    html:<GykimView/>,
+  },
+  soyoung125:{
+    html:<SoyoungView/>,
   },
 };
 

@@ -16,13 +16,13 @@ function MainView() {
             <p>필요한 사람은 아래 개인 페이지에서 실습하세요 (학번순)</p>
             <ul class="icon-list">
               <li><a href="user/gabrielyoon7">윤주현</a></li>
-              <li><a href="user/aaa">남진수</a></li>
-              <li><a href="user/aaa">함현준</a></li>
-              <li><a href="user/aaa">김가영</a></li>
-              <li><a href="user/aaa">박소영</a></li>
-              <li><a href="user/aaa">김도희</a></li>
-              <li><a href="user/aaa">김세은</a></li>
-              <li><a href="user/aaa">김연수</a></li>
+              <li><a href="user/wwwls99">남진수</a></li>
+              <li><a href="user/hyunjun003">함현준</a></li>
+              <li><a href="user/gykim0923">김가영</a></li>
+              <li><a href="user/soyoung125">박소영</a></li>
+              <li><a href="user/hido02">김도희</a></li>
+              <li><a href="user/seeun01">김세은</a></li>
+              <li><a href="user/yeonsu00">김연수</a></li>
             </ul>
 
           </div>
