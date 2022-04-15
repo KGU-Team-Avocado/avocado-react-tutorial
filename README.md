@@ -93,11 +93,11 @@ pages에 삽입할 view를 모아놓는 폴더
 
 URL 관리에 관한 기능
 
-    공식 문서: [https://reactrouter.com/docs/en/v6](https://reactrouter.com/docs/en/v6)
+공식 문서: [https://reactrouter.com/docs/en/v6](https://reactrouter.com/docs/en/v6)
 
 ### `React-Bootstrap`
 
 기존에 사용하던 CSS Bootstrap의 React 버전
 
-    공식 문서: [https://react-bootstrap.github.io/getting-started/introduction](https://react-bootstrap.github.io/getting-started/introduction)
+공식 문서: [https://react-bootstrap.github.io/getting-started/introduction](https://react-bootstrap.github.io/getting-started/introduction)
 
