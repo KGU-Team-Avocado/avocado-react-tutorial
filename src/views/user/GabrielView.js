@@ -8,7 +8,7 @@ const Welcome = (props) => {
 }
 
 const WelcomeMany = (props) => {
-  return(
+  return (
     <>
       <Welcome name="윤주현" />
       <Welcome name="불쌍맨" />
@@ -17,16 +17,42 @@ const WelcomeMany = (props) => {
   )
 }
 
+
 class GabrielView extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  componentDidMount() {
+    setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
   render() {
+    const Time = () => {
+      return (
+        <h1>지금 시각은 {this.state.date.toLocaleTimeString()}</h1>
+      )
+    }
     return (
       <>
         <div>
           {element}
-          <WelcomeMany/>
+          <WelcomeMany />
+          <Time />
         </div>
       </>
-    );  
+    );
   }
 }
 
