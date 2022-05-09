@@ -1,6 +1,6 @@
 import React from 'react';
 
-const element = <h1>Hello world! 남진수</h1>;
+const element = <h1>Hello world! 남진수 hi</h1>;
 
 class WwwlsView extends React.Component {
   render() {
