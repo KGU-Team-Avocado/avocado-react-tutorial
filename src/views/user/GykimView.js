@@ -28,11 +28,30 @@ const WhoMany = (props) => {
   );
 }
 
+
+function handleSubmit(e) {
+    e.preventDefault();
+    console.log('You clicked submit.');
+  }
+  
+
 class GykimView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {date: new Date()};
+    // this.state = {isToggleOn: true};
+    // this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+
+  // handleClick() {
+  //   this.setState(prevState => ({
+  //     isToggleOn: !prevState.isToggleOn
+  //   }));
+  // }
 
   componentDidMount() {
     setInterval(
@@ -54,6 +73,15 @@ class GykimView extends React.Component {
     }
     return (
       <>
+      <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+      </form>
+      {/* <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button> */}
+       <button onClick={this.handleClick}>
+        Click me
+      </button>
         <div>
           {element} 
         </div>
@@ -63,6 +91,7 @@ class GykimView extends React.Component {
         <Who name='와우'/>
         <WhoMany/>
         <Time/>
+       
       </>
     );  
   }
