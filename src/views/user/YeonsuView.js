@@ -6,7 +6,7 @@ const element = <h1>Hello world! 김연수</h1>;
 //   return <h1>Welcome!!</h1>;
 // }
 
-// const Welcome = () => {
+// const Welcome1 = () => {
 //   return <h1>Welcome!!!</h1>;
 // }
 
@@ -26,10 +26,11 @@ const WelcomeMany = (props) => {
 class YeonsuView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = {date: new Date(), isToggleOn: true}; 
+    //this.handleClick = this.handleClick.bind(this);
   }
   
-  componentDidMount() {
+  componentDidMount() {   
     setInterval(
       () => this.tick(), 1000
     );
@@ -41,12 +42,24 @@ class YeonsuView extends React.Component {
     });
   }
 
+  handleClick() {
+    this.setState(prevState => ({ 
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
   render() {
     const Time = () => {
       return (
         <h1>지금 시각은 {this.state.date.toLocaleTimeString()}</h1>
       );
     }
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log('룰루랄라', this);
+    }
+
     return (
       <>
         <div>
@@ -54,9 +67,16 @@ class YeonsuView extends React.Component {
         </div>
         <WelcomeMany/>
         <Time/>
+        <form onSubmit={handleSubmit}>
+          <button type="submit">submit</button>
+        </form>
+        <button onClick={this.handleClick}>
+          {this.state.isToggleOn ? '와' : '우'}
+        </button>
       </>
     );  
   }
 }
+
 
 export default YeonsuView;
