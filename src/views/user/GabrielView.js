@@ -22,7 +22,10 @@ class GabrielView extends React.Component {
   
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = {
+      date: new Date(),
+      isToggleOn:true,
+    };
   }
 
   componentDidMount() {
@@ -44,12 +47,28 @@ class GabrielView extends React.Component {
         <h1>지금 시각은 {this.state.date.toLocaleTimeString()}</h1>
       )
     }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      // Chrome F12 누르고 확인할 것
+      console.log("You clicked submit");
+    }
+    const handleClick = () => {
+      this.setState(prevState =>({
+        isToggleOn: !prevState.isToggleOn
+      }));
+    }
     return (
       <>
         <div>
           {element}
           <WelcomeMany />
           <Time />
+          <form onSubmit={handleSubmit}>
+            <button type='submit'>Submit</button>
+          </form>
+          <button onClick={handleClick}>
+            {this.state.isToggleOn?'ON':'OFF'}
+          </button>
         </div>
       </>
     );
