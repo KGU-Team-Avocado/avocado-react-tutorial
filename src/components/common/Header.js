@@ -2,21 +2,21 @@ import { Link } from "react-router-dom";
 function Header(){
     return (
         <>
-          <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
-            <div class="container-fluid">
+          <nav className="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+            <div className="container-fluid">
               <Link
               className="navbar-brand"
               to="/"
               >
                 ART
               </Link>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
               </button>
   
-              <div class="collapse navbar-collapse" id="navbarsExample04">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                  <li class="nav-item">
+              <div className="collapse navbar-collapse" id="navbarsExample04">
+                <ul className="navbar-nav me-auto mb-2 mb-md-0">
+                  <li className="nav-item">
                     <Link
                     className="nav-link active"
                     to="/main"
@@ -24,7 +24,7 @@ function Header(){
                       Home
                     </Link>
                   </li>
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <Link
                     className="nav-link"
                     to="/main"
@@ -32,7 +32,7 @@ function Header(){
                       Link
                     </Link>
                   </li>
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <Link
                     className="nav-link disabled"
                     to="/main"
@@ -40,7 +40,7 @@ function Header(){
                       Disabled
                     </Link>
                   </li>
-                  <li class="nav-item dropdown">
+                  <li className="nav-item dropdown">
                     <Link
                     className="nav-link dropdown-toggle"
                     to="/"
@@ -48,8 +48,8 @@ function Header(){
                     >
                       Dropdown
                     </Link>
-                    {/* <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a> */}
-                    <ul class="dropdown-menu" aria-labelledby="dropdown04">
+                    {/* <a className="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a> */}
+                    <ul className="dropdown-menu" aria-labelledby="dropdown04">
                       <li>
                         <Link
                         className="dropdown-item"
@@ -78,7 +78,7 @@ function Header(){
                   </li>
                 </ul>
                 <form>
-                  <input class="form-control" type="text" placeholder="Search" aria-label="Search"/>
+                  <input className="form-control" type="text" placeholder="Search" aria-label="Search"/>
                 </form>
               </div>
             </div>
