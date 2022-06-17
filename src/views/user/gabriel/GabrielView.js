@@ -14,7 +14,7 @@ const GabrielView = () => {
         </div>
         <div className="col-md-6">
           <div className="row">
-            <MemoOutput memo={memo}/>
+            <MemoOutput memo={memo} setMemo={setMemo}/>
           </div>
         </div>
       </div>
