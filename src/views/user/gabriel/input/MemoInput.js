@@ -4,22 +4,26 @@ const MemoInput = (props) => {
 
     const [data, setData] = useState(null);
     const [text, setText] = useState('');
+    const [key, setKey] = useState(0);
 
     const handleData = (state) => {
 
         setText(state.target.value);
         setData({
-            date: new Date(),
-            text: state.target.value,
+            key : key,
+            date : new Date(),
+            text : state.target.value,
         });
     };
 
     const handleButton = () => {
         if(text!=''){
             props.setMemo(props.memo.concat(data));
+            setKey(key+1);
             setData(null);
-            setText('');    
+            setText('');
         }
+        console.log(data);
     }
 
     return (
