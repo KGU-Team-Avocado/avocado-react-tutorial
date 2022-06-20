@@ -7,7 +7,7 @@ import SeeunView from '../../views/user/SeeunView';
 import WwwlsView from '../../views/user/WwwlsView';
 import HyunjunView from '../../views/user/HyunjunView';
 import GykimView from '../../views/user/GykimView';
-import SoyoungView from '../../views/user/SoyoungView';
+import SoyoungView from '../../views/user/Soyoung/SoyoungView';
 
 const data = {
   gabrielyoon7:{
