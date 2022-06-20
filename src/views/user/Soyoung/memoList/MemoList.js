@@ -1,7 +1,7 @@
-const MemoList = () => {
+const MemoList = ({ memoList }) => {
     return (
         <div className="col-6">
-            hehe
+            <p>ggg</p>
         </div>
     )
 }
