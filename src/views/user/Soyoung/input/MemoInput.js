@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const MemoInput = ({ createMemo }) => {
+const MemoInput = ({ createMemo, memoId }) => {
     const [memoTitle, setMemoTitle] = useState('');
     const [memoContent, setMemoContent] = useState('');
 
     const saveMemo = () => {
-        const memo = {title: memoTitle, content: memoContent};
+        const memo = {id: memoId, title: memoTitle, content: memoContent};
         setMemoTitle('');
         setMemoContent('');
         createMemo(memo);
