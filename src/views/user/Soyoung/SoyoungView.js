@@ -7,15 +7,18 @@ const Soyoung = () => {
   const [id, setId] = useState(0);
 
   const createMemo = (item) => {
-    console.log(memoList.concat(item))
     setId(item.id + 1);
     setMemoList(memoList.concat(item));
+  }
+
+  const deleteMemo = (id) => {
+    setMemoList(memoList.filter((item) => item.id !== id))
   }
   
   return (
     <div className="mx-5 row">
       <MemoInput createMemo={createMemo} memoId={id} />
-      <MemoList memoList={memoList} />
+      <MemoList memoList={memoList} deleteMemo={deleteMemo} />
     </div>
   )
 }
