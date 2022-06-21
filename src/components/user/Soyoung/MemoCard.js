@@ -3,7 +3,7 @@ const MemoCard = ({ memo, deleteMemo }) => {
         deleteMemo(memo.id);
     }
     return (
-        <div class="col-md-6">
+        <div class="col-md-6 mb-2">
             <div class="card" key={memo.id}>
                 <div class="card-header">
                     {memo.title}
