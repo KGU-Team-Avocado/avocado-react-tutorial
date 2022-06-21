@@ -12,7 +12,7 @@ const MemoInput = ({ createMemo, memoId }) => {
     }
 
     return (
-        <div className="col-6">
+        <div className="col-md-6">
             <input value={memoTitle} onChange={(e) => setMemoTitle(e.target.value)} />
             <textarea value={memoContent} onChange={(e) => setMemoContent(e.target.value)} />
             <button onClick={saveMemo}>저장</button>
