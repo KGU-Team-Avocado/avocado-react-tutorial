@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const MemoInput = ({ createMemo, memoId, memo }) => {
+const MemoInput = ({ createMemo, modifyMemo, memoId, memo }) => {
     const [memoTitle, setMemoTitle] = useState('');
     const [memoContent, setMemoContent] = useState('');
 
@@ -11,10 +11,16 @@ const MemoInput = ({ createMemo, memoId, memo }) => {
 
     const saveMemo = () => {
         const newMemo = { id: memoId, title: memoTitle, content: memoContent };
-        console.log(newMemo)
         setMemoTitle('');
         setMemoContent('');
         createMemo(newMemo);
+    }
+
+    const handleModify = () => {
+        const newMemo = { id: memo.id, title: memoTitle, content: memoContent };
+        setMemoTitle('');
+        setMemoContent('');
+        modifyMemo(newMemo);
     }
 
     return (
@@ -40,7 +46,12 @@ const MemoInput = ({ createMemo, memoId, memo }) => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            {memo.id === -1
+                            ?
                             <button className="btn btn-primary" onClick={saveMemo} data-bs-dismiss="modal">저장</button>
+                            :
+                            <button className="btn btn-primary" onClick={handleModify} data-bs-dismiss="modal">수정</button>
+                            }
                         </div>
                     </div>
                 </div>

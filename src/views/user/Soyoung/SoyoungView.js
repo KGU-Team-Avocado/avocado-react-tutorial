@@ -4,7 +4,7 @@ import MemoList from "./memoList/MemoList";
 
 const Soyoung = () => {
   const [memoList, setMemoList] = useState([]);
-  const [memo, setMemo] = useState({id: 0, title:'', content:''});
+  const [memo, setMemo] = useState({id: -1, title:'', content:''});
   const [id, setId] = useState(0);
 
   const handleModify = (item) => {
@@ -19,6 +19,11 @@ const Soyoung = () => {
   const deleteMemo = (id) => {
     setMemoList(memoList.filter((item) => item.id !== id))
   }
+
+  const modifyMemo = (newMemo) => {
+    setMemoList(memoList.map((memo) => memo.id === newMemo.id ? { ...memo, title:newMemo.title, content:newMemo.content } : memo))
+    setMemo({id: -1, title:'', content:''});
+  }
   
   return (
     <div className="mx-5">
@@ -26,7 +31,7 @@ const Soyoung = () => {
         <h2 className="col-auto mb-2">memoList</h2>
         <button className="col-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#writeMemoModal">새 메모</button>
       </div>
-      <MemoInput createMemo={createMemo} memoId={id} memo={memo} />
+      <MemoInput createMemo={createMemo} modifyMemo={modifyMemo} memoId={id} memo={memo} />
       <MemoList memoList={memoList} deleteMemo={deleteMemo} handleModify={handleModify} />
     </div>
   )
