@@ -16,8 +16,12 @@ const Soyoung = () => {
   }
   
   return (
-    <div className="mx-5 row">
-      <MemoInput createMemo={createMemo} memoId={id} />
+    <div className="mx-5">
+      <div className="row justify-content-between my-2">
+        <h2 className="col-auto mb-2">memoList</h2>
+        <button className="col-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#writeMemoModal">새 메모</button>
+      </div>
+      <MemoInput createMemo={createMemo} memoId={id}  />
       <MemoList memoList={memoList} deleteMemo={deleteMemo} />
     </div>
   )

@@ -2,8 +2,7 @@ import MemoCard from "../../../../components/user/Soyoung/MemoCard";
 
 const MemoList = ({ memoList, deleteMemo }) => {
     return (
-        <div className="col-md-6" >
-            <h2 className="mb-2">memoList</h2>
+        <div>
             <div className="row">
                 {memoList.length === 0
                     ?
