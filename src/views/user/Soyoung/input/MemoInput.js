@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const MemoInput = ({ createMemo, modifyMemo, memoId, memo }) => {
+const MemoInput = ({ createMemo, modifyMemo, handleClose, memoId, memo, isRead }) => {
     const [memoTitle, setMemoTitle] = useState('');
     const [memoContent, setMemoContent] = useState('');
 
@@ -23,6 +23,13 @@ const MemoInput = ({ createMemo, modifyMemo, memoId, memo }) => {
         modifyMemo(newMemo);
     }
 
+    const restore = () => {
+        const newMemo = { id: -1, title: "", content: "" };
+        setMemoTitle('');
+        setMemoContent('');
+        handleClose(newMemo)
+    }
+
     return (
         <>
             <div className="modal fade" id="writeMemoModal" tabIndex="-1" aria-labelledby="writeMemoModalLabel" aria-hidden="true">
@@ -30,27 +37,30 @@ const MemoInput = ({ createMemo, modifyMemo, memoId, memo }) => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="writeMemoModalLabel">Modal title</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={restore}></button>
                         </div>
                         <div className="modal-body">
                             <div>
                                 <div className="mb-3">
                                     <label className="form-label">제목</label>
-                                    <input type="text" className="form-control" value={memoTitle} onChange={(e) => setMemoTitle(e.target.value)} />
+                                    { isRead ? <input type="text" className="form-control" value={memoTitle} readOnly={true} disabled={true} /> : <input type="text" className="form-control" value={memoTitle} onChange={(e) => setMemoTitle(e.target.value)} /> }
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">내용</label>
-                                    <textarea className="form-control" style={{ height: "400px" }} value={memoContent} onChange={(e) => setMemoContent(e.target.value)} />
+                                    { isRead ? <textarea className="form-control" style={{ height: "400px", backgroundColor:"white" }} value={memoContent} readOnly={true} disabled={true} /> : <textarea className="form-control" style={{ height: "400px" }} value={memoContent} onChange={(e) => setMemoContent(e.target.value)} /> }
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            {memo.id === -1
-                            ?
-                            <button className="btn btn-primary" onClick={saveMemo} data-bs-dismiss="modal">저장</button>
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={restore}>Close</button>
+                            {isRead ? 
+                            null
                             :
-                            <button className="btn btn-primary" onClick={handleModify} data-bs-dismiss="modal">수정</button>
+                            (memo.id === -1
+                                ?
+                                <button className="btn btn-primary" onClick={saveMemo} data-bs-dismiss="modal">저장</button>
+                                :
+                                <button className="btn btn-primary" onClick={handleModify} data-bs-dismiss="modal">수정</button>)
                             }
                         </div>
                     </div>

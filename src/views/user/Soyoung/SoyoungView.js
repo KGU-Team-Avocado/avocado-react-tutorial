@@ -6,8 +6,19 @@ const Soyoung = () => {
   const [memoList, setMemoList] = useState([]);
   const [memo, setMemo] = useState({id: -1, title:'', content:''});
   const [id, setId] = useState(0);
+  const [isRead, setIsRead] = useState(false)
 
   const handleModify = (item) => {
+    setMemo(item);
+  }
+
+  const handleRead = (item) => {
+    setIsRead(true);
+    setMemo(item);
+  }
+
+  const handleClose = (item) => {
+    setIsRead(false);
     setMemo(item);
   }
 
@@ -31,8 +42,8 @@ const Soyoung = () => {
         <h2 className="col-auto mb-2">memoList</h2>
         <button className="col-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#writeMemoModal">새 메모</button>
       </div>
-      <MemoInput createMemo={createMemo} modifyMemo={modifyMemo} memoId={id} memo={memo} />
-      <MemoList memoList={memoList} deleteMemo={deleteMemo} handleModify={handleModify} />
+      <MemoInput createMemo={createMemo} modifyMemo={modifyMemo} handleClose={handleClose} memoId={id} memo={memo} isRead={isRead} />
+      <MemoList memoList={memoList} deleteMemo={deleteMemo} handleModify={handleModify} handleRead={handleRead} />
     </div>
   )
 }
