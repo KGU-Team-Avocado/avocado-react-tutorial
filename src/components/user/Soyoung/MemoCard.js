@@ -1,18 +1,15 @@
-const MemoCard = ({ memo, deleteMemo }) => {
-    const clickDelete = () => {
-        deleteMemo(memo.id);
-    }
+const MemoCard = ({ memo, deleteMemo, handleModify }) => {
     return (
-        <div class="col-md-6 mb-2">
-            <div class="card" key={memo.id}>
-                <div class="card-header">
+        <div className="col-lg-4 col-sm-6 mb-2">
+            <div className="card">
+                <div className="card-header">
                     {memo.title}
                 </div>
-                <div class="card-body">
+                <div className="card-body">
                     <p>{memo.content}</p>
-                    <div class="text-end">
-                        <button type="button" class="btn btn-success me-2">수정</button>
-                        <button type="button" class="btn btn-danger" onClick={clickDelete}>삭제</button>
+                    <div className="text-end">
+                        <button type="button" className="btn btn-success me-2" onClick={handleModify} data-bs-toggle="modal" data-bs-target="#writeMemoModal">수정</button>
+                        <button type="button" className="btn btn-danger" onClick={deleteMemo}>삭제</button>
                     </div>
                 </div>
             </div>

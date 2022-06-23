@@ -1,6 +1,6 @@
 import MemoCard from "../../../../components/user/Soyoung/MemoCard";
 
-const MemoList = ({ memoList, deleteMemo }) => {
+const MemoList = ({ memoList, deleteMemo, handleModify }) => {
     return (
         <div>
             <div className="row">
@@ -9,7 +9,7 @@ const MemoList = ({ memoList, deleteMemo }) => {
                     <div>저장된 메모가 없습니다.</div>
                     :
                     memoList.map((memo) => (
-                        <MemoCard memo={memo} deleteMemo={deleteMemo} />
+                        <MemoCard memo={memo} deleteMemo={() => deleteMemo(memo.id)} handleModify={() => handleModify(memo)} key={memo.id} />
                     ))
                 }
             </div>
