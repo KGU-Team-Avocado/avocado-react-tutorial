@@ -1,14 +1,20 @@
 import MemoCard from "../../../../components/user/gabriel/MemoCard";
 
 const MemoOutput = (props) => {
+    let memoList = props.memo;
     const deleteMemo = (key) => {
-        console.log(key)
-        let memoList = props.memo;
         const idx = props.memo.findIndex(item => item.key == key)
         // console.log(idx);
         memoList.splice(idx, 1);
         props.setMemo([...memoList]);
     }
+
+    const modifyMemo = (key, newText) => {
+        const idx = props.memo.findIndex(item => item.key == key)
+        memoList[idx].text=newText;
+        props.setMemo([...memoList]);
+    }
+
     return (
         <>
             {
@@ -16,7 +22,7 @@ const MemoOutput = (props) => {
                     ?
                     <div>데이터가 없습니다</div>
                     :
-                    props.memo.map((item) => <div key={item.key}><MemoCard memo={item} deleteMemo={deleteMemo}/></div>)
+                    props.memo.map((item) => <div key={item.key}><MemoCard memo={item} deleteMemo={deleteMemo} modifyMemo={modifyMemo}/></div>)
             }
         </>
     )

@@ -29,7 +29,7 @@ const MemoInput = (props) => {
     return (
         <>
             <textarea className="mb-2" onChange={handleData} value={text} ></textarea>
-            <button className="btn btn-success" onClick={() => handleButton()}>추가하기</button>
+            <button className="btn btn-success mb-3" onClick={() => handleButton()}>추가하기</button>
         </>
     )
 }
