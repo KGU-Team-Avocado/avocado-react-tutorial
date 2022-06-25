@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import InputTitle from "../../../../components/user/Soyoung/input/InputTitle";
 
 const MemoInput = ({ createMemo, modifyMemo, handleClose, memoId, memo, isRead }) => {
     const [memoTitle, setMemoTitle] = useState('');
@@ -30,21 +31,22 @@ const MemoInput = ({ createMemo, modifyMemo, handleClose, memoId, memo, isRead }
         handleClose(newMemo)
     }
 
+    const handleTitleChange = (title) => {
+        setMemoTitle(title);
+    }
+
     return (
         <>
             <div className="modal fade" id="writeMemoModal" tabIndex="-1" aria-labelledby="writeMemoModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="writeMemoModalLabel">Modal title</h5>
+                            <h5 className="modal-title" id="writeMemoModalLabel">MEMO</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={restore}></button>
                         </div>
                         <div className="modal-body">
                             <div>
-                                <div className="mb-3">
-                                    <label className="form-label">제목</label>
-                                    { isRead ? <input type="text" className="form-control" value={memoTitle} readOnly={true} disabled={true} /> : <input type="text" className="form-control" value={memoTitle} onChange={(e) => setMemoTitle(e.target.value)} /> }
-                                </div>
+                                <InputTitle isRead={isRead} memoTitle={memoTitle} handleTitleChange={handleTitleChange} />
                                 <div className="mb-3">
                                     <label className="form-label">내용</label>
                                     { isRead ? <textarea className="form-control" style={{ height: "400px", backgroundColor:"white" }} value={memoContent} readOnly={true} disabled={true} /> : <textarea className="form-control" style={{ height: "400px" }} value={memoContent} onChange={(e) => setMemoContent(e.target.value)} /> }
