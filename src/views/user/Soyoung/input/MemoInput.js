@@ -43,7 +43,7 @@ const MemoInput = ({ createMemo, modifyMemo, handleClose, memoId, memo, isRead }
 
     return (
         <>
-            <div className="modal fade" id="writeMemoModal" tabIndex="-1" aria-labelledby="writeMemoModalLabel" aria-hidden="true">
+            <div className="modal fade" id="writeMemoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="writeMemoModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
 
@@ -61,7 +61,7 @@ const MemoInput = ({ createMemo, modifyMemo, handleClose, memoId, memo, isRead }
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={restore}>Close</button>
                             <SaveButton isRead={isRead} memo_id={memo.id} saveMemo={saveMemo} handleModify={handleModify} />
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

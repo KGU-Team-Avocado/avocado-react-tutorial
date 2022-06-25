@@ -1,0 +1,8 @@
+.card-hover:hover {
+    border: 1px solid rgb(147, 72, 238);
+}
+
+.content-area {
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+}
