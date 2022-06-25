@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import InputContent from "../../../../components/user/Soyoung/input/InputContent";
 import InputTitle from "../../../../components/user/Soyoung/input/InputTitle";
 
 const MemoInput = ({ createMemo, modifyMemo, handleClose, memoId, memo, isRead }) => {
@@ -35,6 +36,10 @@ const MemoInput = ({ createMemo, modifyMemo, handleClose, memoId, memo, isRead }
         setMemoTitle(title);
     }
 
+    const handleContentChange = (content) => {
+        setMemoContent(content);
+    }
+
     return (
         <>
             <div className="modal fade" id="writeMemoModal" tabIndex="-1" aria-labelledby="writeMemoModalLabel" aria-hidden="true">
@@ -45,13 +50,8 @@ const MemoInput = ({ createMemo, modifyMemo, handleClose, memoId, memo, isRead }
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={restore}></button>
                         </div>
                         <div className="modal-body">
-                            <div>
-                                <InputTitle isRead={isRead} memoTitle={memoTitle} handleTitleChange={handleTitleChange} />
-                                <div className="mb-3">
-                                    <label className="form-label">내용</label>
-                                    { isRead ? <textarea className="form-control" style={{ height: "400px", backgroundColor:"white" }} value={memoContent} readOnly={true} disabled={true} /> : <textarea className="form-control" style={{ height: "400px" }} value={memoContent} onChange={(e) => setMemoContent(e.target.value)} /> }
-                                </div>
-                            </div>
+                            <InputTitle isRead={isRead} memoTitle={memoTitle} handleTitleChange={handleTitleChange} />
+                            <InputContent isRead={isRead} memoContent={memoContent} handleContentChange={handleContentChange} />
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={restore}>Close</button>
