@@ -25,10 +25,16 @@ const SeeunView = () => {
     setData(newMemoList);
   };
 
+  const onEdit = (targetId, newContent) => {
+      setData(
+        data.map((it) =>it.id === targetId ? {...it, memo:newContent} : it )
+      )
+  }
+
   return (
     <div className="App">
       <MemoEditor onCreate={onCreate} />
-      <MemoList memoList={data} onDelete = {onDelete}/>
+      <MemoList onEdit = {onEdit} memoList={data} onDelete = {onDelete}/>
     </div>
   );
 }
