@@ -1,4 +1,4 @@
-import {  useRef, useState } from 'react';  
+import {  useRef, useState, react } from 'react';  
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -27,9 +27,9 @@ const App = () => {
     }
   ]);
 
-  const onModify = (id, newContent) => {
+  const onModify = (id, newTitle, newContent) => {
     setMemos(
-      memos.map(memo => memo.id === id ? {...memo, content: newContent} : memo)
+      memos.map(memo => memo.id === id ? {...memo, title: newTitle, content: newContent} : memo)
     );
   }
 

@@ -7,8 +7,26 @@ const MemoItem = ({ onModify, onDelete, title, content, date, id }) => {
     const [isModify, setIsModify] = useState(false); // 수정모드인지 true false
     const toggleIsModify = () => setIsModify(!isModify); // 수정모드를 on off
 
-    const [newContent, setNewContent] = useState(content); // 이전 content의 state를 이용해서 newContent
-    const newContentInput = useRef(); // 수정 버튼을 눌렀을 때의 form을 focus
+    const[newInputs, setNewInputs] = useState({
+      newTitle: title,
+      newContent: content,
+    });
+
+    const onChange =(e) => { // 입력 함수
+      const { value, name } = e.target;
+      setNewInputs({
+        ...newInputs, 
+        [name]: value
+      });
+    };
+
+    const { newTitle, newContent } = newInputs;
+
+    const newTitleInput = useRef();
+    const newContentInput = useRef();
+
+    // const [newContent, setNewContent] = useState(content); // 이전 content의 state를 이용해서 newContent
+    // const newContentInput = useRef(); // 수정 버튼을 눌렀을 때의 form을 focus
     
   const handleDelete = () => { 
         if (window.confirm(`삭제하시겠습니까?`)) {
@@ -18,7 +36,7 @@ const MemoItem = ({ onModify, onDelete, title, content, date, id }) => {
 
 const handleModify = () => {
     if (window.confirm(`수정하시겠습니까?`)) {
-        onModify(id, newContent);
+        onModify(id, newTitle, newContent);
         toggleIsModify(); // 수정 모드 off
       }
 };
@@ -28,7 +46,17 @@ return (
   <Accordion>
     <Accordion.Item eventKey={id}>
       <Accordion.Header>
-        <span><h4>{title}</h4></span>
+        {isModify ? 
+        (
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+    <Form.Label></Form.Label>
+    <Form.Control size="lg" type="text" name="newTitle" placeholder="제목" value={newTitle} ref={newTitleInput} onChange={onChange}/>
+  </Form.Group>
+          </Form>
+        ) : (
+          <span><h4>{title}</h4></span>
+        )}
         &nbsp;&nbsp;&nbsp;<span>{new Date(date).toLocaleString()}</span>
       </Accordion.Header>
       <Accordion.Body>
@@ -38,7 +66,7 @@ return (
         <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
     <Form.Label></Form.Label>
-    <Form.Control as="textarea" name="newContent" placeholder="내용" rows={3}  ref={newContentInput} value={newContent} onChange={(e) => setNewContent(e.target.value)}
+    <Form.Control as="textarea" name="newContent" placeholder="내용" rows={3}  ref={newContentInput} value={newContent} onChange={onChange}
     />
     </Form.Group>
     </Form>
