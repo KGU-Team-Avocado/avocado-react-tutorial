@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import GabrielView from '../../views/user/gabriel/GabrielView';
-import HidoView from '../../views/user/HidoView';
+import HidoView from '../../views/user/Hido/HidoView';
 import YeonsuView from '../../views/user/YeonsuView';
 import SeeunView from '../../views/user/SeeunView';
 import WwwlsView from '../../views/user/WwwlsView';
