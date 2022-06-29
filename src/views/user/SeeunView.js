@@ -63,7 +63,7 @@ class SeeunView extends React.Component {   //함수 위치 뭐가 다르지?
         <Time2/>
       </>
     );  
-  }
+    }
 }
 
 export default SeeunView;
