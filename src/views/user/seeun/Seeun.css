@@ -1,0 +1,58 @@
+.MemoEditor {
+    /* border: 1px solid gray; */
+    text-align: center;
+    padding: 20px;
+}
+
+.MemoEditor textarea{
+    width: 500px;
+    height: 150px;
+}
+
+.MemoEditor button{
+    width: 500px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.MemoList {
+    /* border: 1px solid gray; */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.MemoList h2 {
+    /* border: 1px solid gray; */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.MemoItem {
+    background-color: gainsboro;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    
+    padding: 20px;
+    padding-bottom: 0px ;
+    width: 500px;
+    /* text-align: center; */
+    display: inline-block;
+
+}
+
+.info{
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.MemoItem.memo{
+    /* border-bottom: 1px solid gray; */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.MemoItem button{
+    /* border-bottom: 1px solid gray; */
+    margin: 10px;
+}
