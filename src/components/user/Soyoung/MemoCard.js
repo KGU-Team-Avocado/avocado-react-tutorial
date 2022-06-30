@@ -11,11 +11,9 @@ const MemoCard = ({ memo, deleteMemo, handleModify, handleRead }) => {
                     </div>
                     <div className="text-end">
                         <button type="button" className="btn btn-outline-warning me-2" onClick={handleModify} data-bs-toggle="modal" data-bs-target="#writeMemoModal">
-                            {/* <i class="bi bi-pencil-square"></i> */}
                             <i class="bi bi-pencil-fill"></i>
                         </button>
                         <button type="button" className="btn btn-outline-danger" onClick={deleteMemo}>
-                            {/* <i class="bi bi-trash"></i> */}
                             <i class="bi bi-clipboard-x-fill"></i>
                         </button>
                     </div>

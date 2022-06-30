@@ -42,8 +42,8 @@ const Soyoung = () => {
       <div className="row justify-content-between my-2">
         <h2 className="col-auto mb-2">memoList</h2>
         <button className="col-auto btn btn-primary" data-bs-toggle="modal" data-bs-target="#writeMemoModal">
-        <i class="bi bi-clipboard-plus me-2"></i>
-        새 메모
+          <i class="bi bi-clipboard-plus me-2"></i>
+          새 메모
         </button>
       </div>
       <MemoInput createMemo={createMemo} modifyMemo={modifyMemo} handleClose={handleClose} memoId={id} memo={memo} isRead={isRead} />
